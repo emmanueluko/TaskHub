@@ -34,6 +34,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 			ValidateIssuer = false,
 			ValidateAudience = false
 		};
+
 	});
 
 var app = builder.Build();
