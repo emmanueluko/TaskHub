@@ -12,6 +12,14 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.Configuration
+	.SetBasePath(Directory.GetCurrentDirectory())
+	.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+	.AddEnvironmentVariables();
+
+Console.WriteLine("Connection String: " + builder.Configuration.GetConnectionString("DefaultConnection"));
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -30,7 +38,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 		options.TokenValidationParameters = new TokenValidationParameters
 		{
 			ValidateIssuerSigningKey = true,
-			IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Your_Secret_Key")),
+			IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("mJ8JfXwH5Dm5I5j6k3dFgD+EqYYTf04RZfMwaZCiwXY=")),
 			ValidateIssuer = false,
 			ValidateAudience = false
 		};

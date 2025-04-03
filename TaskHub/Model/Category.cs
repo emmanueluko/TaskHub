@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace TaskHub.TaskHub.Model
 {
-	public class LoginDto
+	public class Category
 	{
-		[Key] //primary key
-		public int Id { get; set; }
-		public string Username { get; set; }
-		public string Email { get; set; }
-		public string Password { get; set; }
+		[Key]
+		public int CategoryId { get; set; }
+		[Required]
+		public string Name { get; set; }
 	}
 }
